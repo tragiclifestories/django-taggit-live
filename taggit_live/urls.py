@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-from django.conf.urls import *
-=======
 from django.conf.urls import patterns, url
->>>>>>> upstream/master
 import os
 
 urlpatterns = patterns('',
