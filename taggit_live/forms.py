@@ -10,6 +10,7 @@ class TaggitLiveWidget(forms.TextInput):
         css = {'all': ('/static/taggit_live/css/taggit_live.css',
                        )}
         js = ('/static/taggit_live/js/jquery_taggit_init.js',
+            '/static/taggit_live/js/jquery-ui.custom.min.js',
             '/static/taggit_live/js/taggit_live.js',
               )
 
