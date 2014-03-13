@@ -10,13 +10,14 @@ class TaggitLiveWidget(forms.TextInput):
         css = {'all': ('/static/taggit_live/css/taggit_live.css',
                        )}
         js = ('/static/taggit_live/js/taggit_live.js',
+              '/static/taggit_live/js/jquery_taggit_init.js'
               )
 
     def render(self, name, value, attrs=None):
         if value is not None and not isinstance(value, basestring):
             value = edit_string_for_tags([o.tag for o in value.select_related("tag")])
         rendered = super(TaggitLiveWidget, self).render(name, value, attrs)
-        js = u'<script type="text/javascript">jQuery(function() { $("#%s").taggit_live(); });</script>' % (attrs['id'])
+        js = u'<script type="text/javascript">taggit.$(function() { $("#%s").taggit_live(); });</script>' % (attrs['id'])
         return rendered + mark_safe(js)
 
 
